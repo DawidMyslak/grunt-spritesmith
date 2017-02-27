@@ -299,7 +299,7 @@ module.exports = function gruntSpritesmith (grunt) {
 
       // Render the variables via `spritesheet-templates`
       var cssStr = templater({
-        sprites: cleanCoords,
+        sprites: typeof data.cssSort === 'function' ? cleanCoords.sort(data.cssSort) : cleanCoords,
         spritesheet: spritesheetInfo,
         spritesheet_info: {
           name: data.cssSpritesheetName
